@@ -1,5 +1,9 @@
-This is the pages/index.html
+<?php foreach($data['pages'] as $page_data){ ?>
 
-<br/>
+    <div style="margin-top: 20px;">
+        <a href="/renovaSpa/pages/view/<?=$page_data['alias']?>"><?=$page_data['title']?></a>
 
-<?=$data['test_content']?>
+    </div>
+
+
+<?php } ?>

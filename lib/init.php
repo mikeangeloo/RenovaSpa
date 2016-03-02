@@ -14,7 +14,7 @@ function __autoload($class_name){
     } elseif ( file_exists($model_path) ){
         require_once($model_path);
     } else {
-
+        throw new Exception('Failed to include class: '.$class_name);
     }
 }
 

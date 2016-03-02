@@ -73,9 +73,16 @@ class Router{
     }
 
     public function __construct($uri){
-         $this->uri = ltrim($uri, "renovaSpa/");//muy importante
+
+        $uri_parts2=explode('renovaSpa/',$uri);//filtrar URL
+       $path2=$uri_parts2[1];
 
 
+
+
+
+
+        $this->uri = urldecode(trim($path2, '/'));
 
         // Get defaults
         $routes = Config::get('routes');
