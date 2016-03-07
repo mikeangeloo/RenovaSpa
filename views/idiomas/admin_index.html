@@ -1,0 +1,27 @@
+<h4>Idiomas</h4>
+<table class="table" border="width: auto">
+    <tr class="success">
+        <th>Id</th>
+        <th>Nombre</th>
+        <th colspan="2">Opci&oacuten</th>
+    </tr>
+    <?php foreach ($data['idiomas'] as $idiomas_data){ ?>
+
+    <tr class="active">
+
+        <td><b><?=$idiomas_data['id']?></b></td>
+        <td><b><?=$idiomas_data['nombre']?></b></td>
+        <td align="right">
+            <a href="/renovaSpa/admin/idiomas/Editar/<?=$idiomas_data['id']?>"><button class="btn btn-sm btn-primary">Editar</button></a>
+        </td>
+        <td align="right">
+            <a href="/renovaSpa/admin/idiomas/borrarRegistro/<?=$idiomas_data['id']?>" onclick=" return confirmDelete();"><button class="btn btn-sm btn-warning">Borrar</button></a>
+        </td>
+    </tr>
+    <?php }?>
+</table>
+<br>
+
+<div>
+    <a href="/renovaSpa/admin/idiomas/agregar"><button class="btn btn-sm btn-success">Nuevo Idioma</button></a>
+</div>

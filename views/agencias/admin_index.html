@@ -1,0 +1,33 @@
+<h4>Agencias</h4>
+<table class="table" border="width: auto">
+    <tr class="success">
+        <th>Id</th>
+        <th>Razon Social</th>
+        <th>Nombre Comercial</th>
+        <th>Telefono</th>
+        <th>Correo Electronico</th>
+        <th colspan="2">Opci&oacuten</th>
+    </tr>
+    <?php foreach ($data['agencias'] as $agencias_data){ ?>
+
+    <tr class="active">
+
+        <td><b><?=$agencias_data['id']?></b></td>
+        <td><b><?=$agencias_data['razon_social']?></b></td>
+        <td><b><?=$agencias_data['nombre_comercial']?></b></td>
+        <td><b><?=$agencias_data['telefono']?></b></td>
+        <td><b><?=$agencias_data['correo_electronico']?></b></td>
+        <td align="right">
+            <a href="/renovaSpa/admin/agencias/Editar/<?=$agencias_data['id']?>"><button class="btn btn-sm btn-primary">Editar</button></a>
+        </td>
+        <td align="right">
+            <a href="/renovaSpa/admin/agencias/borrarRegistro/<?=$agencias_data['id']?>" onclick=" return confirmDelete();"><button class="btn btn-sm btn-warning">Borrar</button></a>
+        </td>
+    </tr>
+    <?php }?>
+</table>
+<br>
+
+<div>
+    <a href="/renovaSpa/admin/agencias/agregar"><button class="btn btn-sm btn-success">Nuevo Agencia</button></a>
+</div>

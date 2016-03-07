@@ -1,0 +1,22 @@
+<h3>Editar Agencia</h3><br>
+<form method="post" action="">
+    <input type="hidden" name="id" value="<?=$data['agencias']['id']?>"/>
+    <div class="form-group">
+        <label for="razon_social">Razon Social</label>
+        <input type="text" id="razon_social" name="razon_social" value="<?=$data['agencias']['razon_social']?>" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="nombre_comercial">Nombre Comercial</label>
+        <input type="text" id="nombre_comercial" name="nombre_comercial" value="<?=$data['agencias']['nombre_comercial']?>" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="telefono">Telefono</label>
+        <input type="text" id="telefono" name="telefono" value="<?=$data['agencias']['telefono']?>" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="correo_electronico">Correo Electronico</label>
+        <input type="text" id="correo_electronico" name="correo_electronico" value="<?=$data['agencias']['correo_electronico']?>" class="form-control"/>
+    </div>
+    <input type="submit" class="btn btn-success" value="Modificar">
+
+</form>

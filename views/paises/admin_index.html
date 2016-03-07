@@ -1,0 +1,27 @@
+<h4>Paises</h4>
+<table class="table" border="width: auto">
+    <tr class="success">
+        <th>Id</th>
+        <th>Nombre</th>
+        <th colspan="2">Opci&oacuten</th>
+    </tr>
+    <?php foreach ($data['paises'] as $paises_data){ ?>
+
+    <tr class="active">
+
+        <td><b><?=$paises_data['id']?></b></td>
+        <td><b><?=$paises_data['nombre']?></b></td>
+        <td align="right">
+            <a href="/renovaSpa/admin/paises/Editar/<?=$paises_data['id']?>"><button class="btn btn-sm btn-primary">Editar</button></a>
+        </td>
+        <td align="right">
+            <a href="/renovaSpa/admin/paises/borrarRegistro/<?=$paises_data['id']?>" onclick=" return confirmDelete();"><button class="btn btn-sm btn-warning">Borrar</button></a>
+        </td>
+    </tr>
+    <?php }?>
+</table>
+<br>
+
+<div>
+    <a href="/renovaSpa/admin/paises/agregar"><button class="btn btn-sm btn-success">Nueva Circunstancia</button></a>
+</div>

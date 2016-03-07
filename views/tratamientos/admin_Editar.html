@@ -1,0 +1,10 @@
+<h3>Editar Tratamiento</h3><br>
+<form method="post" action="">
+    <input type="hidden" name="id" value="<?=$data['tratamientos']['id']?>"/>
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" value="<?=$data['tratamientos']['nombre']?>" class="form-control"/>
+    </div>
+    <input type="submit" class="btn btn-success" value="Modificar">
+
+</form>

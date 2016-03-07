@@ -9,7 +9,7 @@ ENGINE = InnoDB;
 
 
 CREATE TABLE IF NOT EXISTS `spa`.`agencias` (
-  `id` INT NOT NULL COMMENT '',
+  `id` INT NOT NULL auto_increment COMMENT '',
   `razon_social` VARCHAR(45) NULL COMMENT '',
   `nombre_comercial` VARCHAR(45) NULL COMMENT '',
   `telefono` VARCHAR(45) NULL COMMENT '',
@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 
 
 CREATE TABLE IF NOT EXISTS `spa`.`hoteles` (
-  `id` INT NOT NULL COMMENT '',
+  `id` INT NOT NULL auto_increment COMMENT '',
   `nombre` VARCHAR(45) NULL COMMENT '',
   `ubicacion` VARCHAR(45) NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '')
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `spa`.`clientes` (
   `edad` INT NULL COMMENT '',
   `correo_electronico` VARCHAR(255) NULL COMMENT '',
   `habitacion` VARCHAR(50) NULL COMMENT '',
-  `firma` VARCHAR(45) NULL COMMENT '',
+  `firma` longblob NULL COMMENT '',
   PRIMARY KEY (`id`, `pais_id`, `idioma_id`, `hotel_id`, `agencia_id`, `circustancias_medica_id`)  COMMENT '',
   INDEX `fk_clientes_paises1_idx` (`pais_id` ASC)  COMMENT '',
   INDEX `fk_clientes_idiomas1_idx` (`idioma_id` ASC)  COMMENT '',

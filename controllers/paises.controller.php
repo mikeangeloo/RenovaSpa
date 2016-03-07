@@ -1,35 +1,22 @@
 <?php
 
 /**
- * Class PagesController
- * Clase que hereda de la clase padre Controller
- * Su objetivo es controlar las peticiones del usuario, enviar y recibir parametros al modelo page.php
+ * Class PaisesController
+ * Su objetivo es controlar las peticiones del usuario, enviar y recibir parametros al modelo: ClaPaises.php
  * @author Miguel Ángel Ramírez López <"miguelangelramirez@tecnorrollo.com">
  * @materia Calidad en el desarrollo del software
  * @grupo TI51
  * @programa Glifosoft 1.0
- *
  */
-
-
-class PagesController extends Controller
+class PaisesController extends Controller
 {
-    public function __construct($data = array()){
+    public  function __construct($data = array()){
         parent::__construct($data);
-        $this->model = new Page();
+        $this->model = new ClaPaises();
     }
 
-
-
-
-
-    public function index(){
-
-    }
-
-
-    public function admin_Index(){
-        $this->data['hoteles'] = $this->model->obtenerListado();
+    public function admin_index(){
+        $this->data['paises'] = $this->model->obtenerListado();
     }
 
     public function admin_Agregar(){
@@ -38,13 +25,13 @@ class PagesController extends Controller
             if($resultado){
                 ?>
                 <script>alert("Registro exitoso");
-                    location.href= "/renovaSpa/admin/";
+                    location.href= "/renovaSpa/admin/paises";
                 </script>
                 <?php
             }else{
                 ?>
                 <script>alert("Error al registrar");
-                    location.href= "/renovaSpa/admin/";
+                    location.href= "/renovaSpa/admin/paises";
                 </script>
                 <?php
             }
@@ -58,21 +45,21 @@ class PagesController extends Controller
             $resultado = $this->model->guardar($_POST,$id);
             if($resultado){
                 ?> <script>alert("Modificacion exitosa");
-                    location.href= "/renovaSpa/admin/";
+                    location.href= "/renovaSpa/admin/paises";
                 </script>
                 <?php
             }else{
                 ?> <script>alert("Error al registrar");
-                    location.href= "/renovaSpa/admin/";
+                    location.href= "/renovaSpa/admin/paises";
                 </script>
                 <?php
             }
         }
         if(isset($this->params[0])){
-            $this->data['hoteles']=$this->model->obtenerPorId($this->params[0]);
+            $this->data['paises']=$this->model->obtenerPorId($this->params[0]);
         }else{
-            ?> <script>alert("Id Hotelel Incorrecto");
-                location.href= "/renovaSpa/admin/";
+            ?> <script>alert("Id circunstancia Incorrecto");
+                location.href= "/renovaSpa/admin/paises";
             </script>
             <?php
         }
@@ -84,13 +71,13 @@ class PagesController extends Controller
             if($resultado){
                 ?>
                 <script>alert("Registro Eliminado");
-                    location.href= "/renovaSpa/admin/";
+                    location.href= "/renovaSpa/admin/paises";
                 </script>
                 <?php
             }else{
                 ?>
                 <script>alert("Error al eliminar");
-                    location.href= "/renovaSpa/admin/";
+                    location.href= "/renovaSpa/admin/paises";
                 </script>
                 <?php
             }
@@ -98,8 +85,7 @@ class PagesController extends Controller
 
     }
 
-
-
 }
+
 
 ?>

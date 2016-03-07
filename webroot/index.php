@@ -13,3 +13,4 @@ App::run($_SERVER['REQUEST_URI']);
 //$test = App::$db->query('select * from pages');
 //echo "<pre>";
 //print_r($test);
+

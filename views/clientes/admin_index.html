@@ -1,0 +1,48 @@
+<h4>Clientes</h4>
+<table class="table" border="width: auto">
+    <tr class="success">
+        <th>Id</th>
+        <th>Pais</th>
+        <th>Idioma</th>
+        <th>Hotel</th>
+        <th>Agencia</th>
+        <th>Circunstancias Medicas</th>
+        <th>Fecha alta</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Edad</th>
+        <th>Correo Electronico</th>
+        <th>Habitacion</th>
+        <th colspan="2">Opci&oacuten</th>
+    </tr>
+
+    <?php foreach ($data['clientes'] as $clientes_data){ ?>
+
+    <tr class="active">
+
+        <td><b><?=$clientes_data[0]?></b></td>
+        <td><b><?=$clientes_data[1]?></b></td>
+        <td><b><?=$clientes_data[2]?></b></td>
+        <td><b><?=$clientes_data[3]?></b></td>
+        <td><b><?=$clientes_data[4]?></b></td>
+        <td><b><?=$clientes_data[5]?></b></td>
+        <td><b><?=$clientes_data[6]?></b></td>
+        <td><b><?=$clientes_data[7]?></b></td>
+        <td><b><?=$clientes_data[8]?></b></td>
+        <td><b><?=$clientes_data[9]?></b></td>
+        <td><b><?=$clientes_data[10]?></b></td>
+        <td><b><?=$clientes_data[11]?></b></td>
+        <td align="right">
+            <a href="/renovaSpa/admin/clientes/Editar/<?=$clientes_data[0]?>"><button class="btn btn-sm btn-primary">Editar</button></a>
+        </td>
+        <td align="right">
+            <a href="/renovaSpa/admin/clientes/borrarRegistro/<?=$clientes_data[0]?>" onclick=" return confirmDelete();"><button class="btn btn-sm btn-warning">Borrar</button></a>
+        </td>
+    </tr>
+    <?php }?>
+</table>
+<br>
+
+<div>
+    <a href="/renovaSpa/admin/clientes/agregar"><button class="btn btn-sm btn-success">Nuevo Cliente</button></a>
+</div>

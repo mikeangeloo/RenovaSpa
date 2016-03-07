@@ -1,0 +1,100 @@
+<h3>Editar Idioma</h3><br>
+<form method="post" action="">
+    <input type="hidden" name="id" value="<?=$data['clientes']['id']?>"/>
+    <div class="form-group">
+       <!-- <?php
+        echo"<pre>";
+            print_r($data['clientes']);
+         echo"</pre>";
+        echo"<pre>";
+        print_r($data['circustancias_medicas']);
+        echo"</pre>";
+        echo"<pre>";
+        print_r($data['clientes2']);
+        echo"</pre>";
+        ?>-->
+
+        <label for="pais_id">Pais</label>
+        <br>
+        <select name="pais_id" id="pais_id">
+            <option value="<?= $data['clientes2']['pais_id']?>" selected><?= $data['clientes'][1]?></option>
+            <?php foreach ($data['paises'] as $paises_data){
+                if($data['clientes'][1]!=$paises_data['nombre']){
+                ?>
+            <option value="<?=$paises_data['id']?>"><?=$paises_data['nombre']?></option>
+            <?php }} ?>
+        </select>
+        <br>
+
+        <label for="idioma_id">Idioma</label>
+        <br>
+        <select name="idioma_id" id="idioma_id">
+            <option value="<?= $data['clientes2']['idioma_id']?>" selected><?= $data['clientes'][2]?></option>
+            <?php foreach ($data['idiomas'] as $idiomas_data){
+                if($data['clientes'][2]!=$idiomas_data['nombre']){
+            ?>
+            <option value="<?=$idiomas_data['id']?>"><?=$idiomas_data['nombre']?></option>
+            <?php }} ?>
+        </select>
+        <br>
+
+
+        <label for="hotel_id">Hotel</label>
+        <br>
+        <select name="hotel_id" id="hotel_id">
+            <option value="<?= $data['clientes2']['hotel_id']?>" selected><?= $data['clientes'][3]?></option>
+            <?php foreach ($data['hoteles'] as $hoteles_data){
+                if($data['clientes'][3]!=$hoteles_data['nombre']){
+            ?>
+            <option value="<?=$hoteles_data['id']?>"><?=$hoteles_data['nombre']?></option>
+            <?php }} ?>
+        </select>
+        <br>
+
+        <label for="agencia_id">Agencia</label>
+        <br>
+        <select name="agencia_id" id="agencia_id">
+            <option value="<?= $data['clientes2']['agencia_id']?>" selected><?= $data['clientes'][4]?></option>
+            <?php foreach ($data['agencias'] as $agencias_data){
+                if($data['clientes'][4]!=$agencias_data['nombre_comercial']){
+            ?>
+            <option value="<?=$agencias_data['id']?>"><?=$agencias_data['nombre_comercial']?></option>
+            <?php }} ?>
+        </select>
+        <br>
+
+
+        <label for="circustancias_medica_id">Circunstancia Medica</label>
+        <br>
+        <select name="circustancias_medica_id" id="circustancias_medica_id">
+            <option value="<?= $data['clientes2']['circustancias_medica_id']?>" selected><?= $data['clientes'][5]?></option>
+            <?php foreach ($data['circustancias_medicas'] as $circu_data){
+                if($data['clientes'][5]!=$circu_data['nombre']){
+            ?>
+            <option value="<?=$circu_data['id']?>"><?=$circu_data['nombre']?></option>
+            <?php }} ?>
+        </select>
+        <br>
+
+        <label for="fecha_alta">Fecha Alta</label>
+        <input type="date" id="fecha_alta" name="fecha_alta" value="<?=$data['clientes2']['fecha_alta']?>" class="form-control"/>
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" value="<?=$data['clientes2']['nombre']?>" class="form-control"/>
+
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" name="apellidos" value="<?=$data['clientes2']['apellidos']?>" class="form-control"/>
+
+        <label for="edad">Edad</label>
+        <input type="text" id="edad" name="edad" value="<?=$data['clientes2']['edad']?>" class="form-control"/>
+
+        <label for="correo_electronico">Correo Electronico</label>
+        <input type="text" id="correo_electronico" name="correo_electronico" value="<?=$data['clientes2']['correo_electronico']?>" class="form-control"/>
+
+        <label for="habitacion">Habitacion</label>
+        <input type="text" id="habitacion" name="habitacion" value="<?=$data['clientes2']['habitacion']?>" class="form-control"/>
+
+    </div>
+    <input type="submit" class="btn btn-success" value="Modificar">
+
+</form>
