@@ -9,16 +9,27 @@
  * @programa Glifosoft 1.0
  */
 class CircunstanciasController extends Controller
-{
+{   /**
+     * Contructor del controlador 
+     * @param array $data [recibe el path de la ruta de la vista]
+     */
     public  function __construct($data = array()){
     parent::__construct($data);
     $this->model = new ClaCircunstancias();
     }
-
+    /**
+     * Método para que solicita el listado de parametros de la vista
+     * @return [arreglo] [Arreglo con listado de parametros]
+     */
     public function admin_index(){
         $this->data['circustancias_medicas'] = $this->model->obtenerListado();
     }
-
+    /**
+     * [admin_Agregar Método para invocar agregar nuevos elementos a traves del modelo]
+     * @return [true:false] [Envia mensaje de exito o error de registro de parametros]
+     * @param $_POST recibe parametros del formulario
+     * 
+     */
     public function admin_Agregar(){
         if($_POST){
             $resultado=$this->model->guardar($_POST);
@@ -38,7 +49,12 @@ class CircunstanciasController extends Controller
 
         }
     }
-
+    /**
+     * [admin_Editar Método para editar elementos a traves del modelo ]
+     * @return [true:false] [Envia mensaje de exito o error]
+     * @param $_POST recibe parametros del formulario
+     * Se comunica con el modelo para ejecutar sus métodos de modifación
+     */
     public function admin_Editar(){
         if($_POST){
             $id=isset($_POST['id'])?$_POST['id']:null;
@@ -64,7 +80,10 @@ class CircunstanciasController extends Controller
             <?php
         }
     }
-
+    /**
+     * [admin_BorrarRegistro Invoca los métodos del modelo para borrar registros]
+     * @return [true:false] [Muestra mensaje de exito o error]
+     */
     public function admin_BorrarRegistro(){
         if(isset($this->params[0])){
             $resultado = $this->model->borrarRegistro($this->params[0]);

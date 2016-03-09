@@ -1,0 +1,239 @@
+<link rel="stylesheet" href="webroot/css/exoneracionStyle.css">
+<script>
+    function buscar(){
+        var id= document.getElementById("id").value;
+        location.href = "/renovaSpa/admin/carta/?id="+id;
+    }
+$(document).ready(function(){
+    $("#exportar").click(function(){
+        $("#forma").attr('action',"/renovaSpa/admin/exoneracion/").submit();
+    });
+
+});
+
+</script>
+
+<?php
+if(isset($data['clientes'])){
+    $id_cliente=$data['clientes'][0];
+    $pais=$data['clientes'][1];
+    $idioma=$data['clientes'][2];
+    $hotel=$data['clientes'][3];
+    $agencia=$data['clientes'][4];
+
+    $circu=$data['clientes'][5];
+    $fecha=$data['clientes'][6];
+
+    $nombre=$data['clientes'][7];
+    $apellidos=$data['clientes'][8];
+    $edad=$data['clientes'][9];
+    $correo=$data['clientes'][10];
+    $habitacion=$data['clientes'][11];
+
+}
+?>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="/renovaSpa/admin/carta/" class="close"  aria-hidden="true">close</a>
+                <h4 class="modal-title" id="myModalLabel">Nuevo Registro</h4>
+
+                <p>Seleccione la opci&oacuten deseada</p>
+            </div>
+
+            <div class="modal-body">
+
+                <iframe src="/renovaSpa/admin/clientes/agregar" id="info" class="iframe" name="info" scrolling="yes"></iframe>
+            </div>
+
+        </div>
+    </div>
+</div> <!-- /#myModal -->
+
+<body>
+<div  id="formulario">
+    <h1>Exoneración de Responsabilidad</h1>
+</div>
+<br>
+<div class="col-12 cartaencabezado">
+    Bienvenido | welcome | willkommen | benvenuto | valkomen | bienvenue
+</div>
+<div class="col-12">
+<div id="Relleno">
+<p>Por favor, dedique unos minutos a leer cuidadosamente
+    la información siguiente y suscribirla con una
+    firma al finalizar. Muchas gracias.
+</p>
+    <br>
+    <br>
+    <b><-----------Puedes agregar mas opciones da click</b>
+
+    <button class="btn btn-primary btn-lg boton1" data-toggle="modal" data-target="#myModal" id="btn1">
+        +</button>
+
+    <form id="forma" method="post" action="">
+        <div class="col-14">
+
+            <label for="id">ID Cliente:</label> <input type="text" id="id" name="id">
+            <input type="button" onclick="buscar();" value="Buscar por ID"/>
+            <input type="hidden" name="id_cliente" id="id_cliente" value="<?php if(isset($id_cliente)){echo $id_cliente;} ?>">
+            <br>
+            <br>
+            <br>
+            <label for="nombre">Nombre:</label> <input type="text" placeholder="Nombre:" class="textNom" id="nombre" name="nombre" value="<?php if(isset($nombre)){echo $nombre;} ?>">
+            <label for="apellidos">Apellidos:</label> <input type="text" placeholder="Apellidos:" class="textNom" id="apellidos" name="apellidos" value="<?php if(isset($apellidos)){echo $apellidos;} ?>">
+            <label for="edad">Edad: </label> <input type="number" placeholder="Edad:" class="textEda" id="edad" name="edad" value="<?php if(isset($edad)){echo $edad;} ?>">
+        </div>
+        <br>
+        <br>
+
+        <div class="col-14">
+            <label for="pais_id">Pais:</label> <input type="text" placeholder="País:" class="textPai" id="pais_id" name="pais_id" value="<?php if(isset($pais)){echo $pais;} ?>">
+            <label for="correo_electronico">Correo:</label> <input type="text"placeholder="E-mail:" class="textEma" id="correo_electronico" name="correo_electronico" value="<?php if(isset($correo)){echo $correo;} ?>">
+        </div>
+
+        <br>
+        <br>
+
+        <div class="col-14">
+            <label for="hotel_id">Hotel:</label> <input type="text" placeholder="Hotel:" class="textHot" id="hotel_id" name="hotel_id" value="<?php if(isset($hotel)){echo $hotel;} ?>">
+            <label for="habitacion">Habitacion:</label> <input type="text" placeholder="Habitación:" class="textHab" id="habitacion" name="habitacion" value="<?php if(isset($habitacion)){echo $habitacion;} ?>">
+        </div>
+
+        <br>
+        <br>
+
+        <div class="col-14">
+            <label for="agencia_id">Agencia:</label> <input type="text" placeholder="Agencia de viaje:" class="textAge" name="agencia_id" id="agencia_id" value="<?php if(isset($agencia)){echo $agencia;} ?>">
+        </div>
+
+        <br>
+        <br>
+
+        <div class="col-14">
+            <label for="tratamiento_id">Tratamiento:</label>
+            <select class="textTra" name="tratamiento_id" id="tratamiento_id">
+                <?php
+                    if(isset($data['tratamientos'])){
+                        foreach ($data['tratamientos'] as $tratamientos_data){
+                ?>
+                <option value="<?=$tratamientos_data['id']?>"><?=$tratamientos_data['nombre']?></option>
+
+                <?php }} ?>
+
+            </select>
+
+            <label for="terapeuta_id">Terapeuta:</label>
+            <select name="terapeuta_id" id="terapeuta_id">
+                <?php
+                    if(isset($data['tratamientos'])){
+                    foreach ($data['terapeutas'] as $terapeutas_data){
+
+                ?>
+                <option value="<?=$terapeutas_data['id']?>"><?=$terapeutas_data['nombre']?></option>
+                <?php }} ?>
+            </select>
+
+        </div>
+
+        <br>
+
+
+
+
+<div class="col-14">
+<ol>
+    <li value="1"> El masaje o tratamiento que usted va a recibir tiene el propósito básico de la relajación y el alivio de
+        la tensión muscular superficial.</li>
+    <br>
+    <li>Si usted está insatisfecho con el servicio, o experimenta cualquier tipo de molestia o dolor durante la
+        sesión, informe por favor al terapeuta cuanto antes.</li>
+    <br>
+    <li>Si no se menciona nada durante la sesión, asumiremos que no ha habido ningún problema.</li>
+    <br>
+    <li>Háganos saber antes del inicio de la sesión si se encuentra bajo algunas de las siguientes circunstancias:</li>
+    <br>
+
+    <input name="circunstancia[]" type="checkbox" value="Embarazo">Embarazo
+    <input name="circunstancia[]" type="checkbox" value="Problemas del corazón">Problemas del corazón
+    <input name="circunstancia[]" type="checkbox" value="Claustrofobia">Claustrofobia
+    <input name="circunstancia[]" type="checkbox" value="Dolor general">Dolor general
+    <input name="circunstancia[]" type="checkbox" value="Alergia">Alergía
+    <input name="circunstancia[]" type="checkbox" value="Epilepsia">Epilepsia<br>
+    <input name="circunstancia[]" type="checkbox" value="Problemas en la piel">Problemas en la piel
+    <input name="circunstancia[]" type="checkbox" value="Cirugia reciente">Cirugía reciente
+    <input name="circunstancia[]" type="checkbox" value="Problemas o lesion de la espina dorsal">Problemas o lesión de la espina dorsal
+    <input name="circunstancia[]" type="checkbox" value="Diabetes">Diabetes
+    <input name="circunstancia[]" type="checkbox" value="Acne">Acne<br>
+
+    <br>
+    <br>
+    <h7><strong>Algún otro desquilibrio de la salud:</strong></h7>
+    <br>
+
+
+    <textarea name="otracircu" id="otracircu"></textarea>
+
+    <br>
+    <br>
+
+    <li>Cualquier insinuación, hecho o propuesta de caracter sexual ocasionara el final inmediato de la
+        sesión y él/la huésped sera obligado al pago completo del servicio.</li>
+    <br>
+    <li>Por la seguridad de sus valores, le sugerimos dejarlos en la caja fuerte de su habitación.
+        Renova spa no asumirá ninguna responsabilidad por robo o extravío de valores.</li>
+</ol>
+<p>Le agradecemos su comprensión y esperamos que disfrute de nuestros servicios.</p>
+</div>
+
+    <br>
+<br>
+
+<div class="col-14">
+    <br>
+    <br>
+    <br>
+    <br>
+
+<table style="margin: 0 auto;"  width="100%">
+    <tr>
+        <td><hr style='width: 50%'>Firma del Terapeuta</td>
+        <td><hr style='width: 50%'>Firma del Cliente</td>
+    </tr>
+</table>
+<br>
+<p>Por favor ayúdenos a mejorar nuestros servicios dándonos su opinión sobre le servicio recibido.</p>
+<div id="imagenes" align="center">
+    <img src="webroot/img/muyBueno.png">
+    <img src="webroot/img/bueno.png">
+    <img src="webroot/img/normal.png">
+    <img src="webroot/img/malo.png">
+</div>
+<div id="check" align="center">
+
+
+    <input type="radio" name="opinion" value="<?php echo $data['opiniones'][0]['id'];?>">
+    <input type="radio" name="opinion" value="<?php echo $data['opiniones'][1]['id'];?>">
+    <input type="radio" name="opinion" value="<?php echo $data['opiniones'][2]['id'];?>">
+    <input type="radio" name="opinion" value="<?php echo $data['opiniones'][3]['id'];?>">
+</div>
+</div>
+
+<br>
+<br>
+<img class="imgexportar" src="webroot/img/exportar.png" alt="exportar">
+    <br>
+<input name="exportar" id="exportar" class="exportar btn btn-primary" type="button" value="Exportar">
+
+<img class="imgexportar2" src="webroot/img/guardar.png" alt="exportar">
+<br>
+<input class="exportar2 btn btn-primary" type="submit" value="Guardar">
+</form>
+</div>
+</div>
+<footer>Dada la inexistencia previa de condición médica especial, Renova Spa y el Hotel no se hacen responsables
+    de ningún efecto secundario resultante.
+</footer>
+</body>

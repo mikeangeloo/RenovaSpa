@@ -1,0 +1,33 @@
+<h4>Sesiones</h4>
+<table class="table" border="width: auto">
+    <tr class="success">
+        <th>Id</th>
+        <th>Opiniones</th>
+        <th>Cliente</th>
+        <th>Terapeuta</th>
+        <th>Tratamiento</th>
+        <th colspan="2">Opci&oacuten</th>
+    </tr>
+    <?php foreach ($data['sesiones'] as $sesiones_data){ ?>
+
+    <tr class="active">
+
+        <td><b><?=$sesiones_data[0]?></b></td>
+        <td><b><?=$sesiones_data[1]?></b></td>
+        <td><b><?=$sesiones_data[2]." ".$sesiones_data[3]?></b></td>
+        <td><b><?=$sesiones_data[4]?></b></td>
+        <td><b><?=$sesiones_data[5]?></b></td>
+        <td align="right">
+            <a href="/renovaSpa/admin/sesiones/Editar/<?=$sesiones_data[0]?>"><button class="btn btn-sm btn-primary">Editar</button></a>
+        </td>
+        <td align="right">
+            <a href="/renovaSpa/admin/sesiones/borrarRegistro/<?=$sesiones_data[0]?>" onclick=" return confirmDelete();"><button class="btn btn-sm btn-warning">Borrar</button></a>
+        </td>
+    </tr>
+    <?php }?>
+</table>
+<br>
+
+<div>
+    <a href="/renovaSpa/admin/sesiones/agregar"><button class="btn btn-sm btn-success">Nueva Sesion</button></a>
+</div>

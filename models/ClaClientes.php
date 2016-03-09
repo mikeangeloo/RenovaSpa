@@ -10,11 +10,20 @@
  */
 class ClaClientes extends Model
 {
+    /**
+     * Método que obtiene el listado solicitado por el controlador
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
     public function obtenerListado(){
         $slq = "select * from clientes where 1";
         return $this->db->query($slq);
     }
 
+    /**
+     * Método que obtiene el listado solicitado por el controlador
+     * Utiliza el query 2 de la clase DB. Este select esta formado por 4 join
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
     public function join(){
         $slq = "select cl.id, pai.nombre, idi.nombre, hot.nombre, age.nombre_comercial, cir.nombre, cl.fecha_alta, cl.nombre, cl.apellidos, cl.edad, cl.correo_electronico, cl.habitacion
                 from clientes as cl join hoteles as hot on hot.id = cl.hotel_id
@@ -29,6 +38,12 @@ class ClaClientes extends Model
 
     }
 
+    /**
+     * Método que obtiene el listado filtrado por id
+     * @param  [int] $id [id solicidado]
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
+    
     public function obtenerPorId($id){
         $id = (int)$id;
         $slq = "select cl.id, pai.nombre, idi.nombre, hot.nombre, age.nombre_comercial, cir.nombre, cl.fecha_alta, cl.nombre, cl.apellidos, cl.edad, cl.correo_electronico, cl.habitacion
@@ -42,6 +57,7 @@ class ClaClientes extends Model
         return isset($resultado[0]) ? $resultado[0]:null;
     }
 
+    
     public function obtenerIdSencillo($id){
         $id = (int)$id;
         $slq = "select * from clientes where id = '{$id}' limit 1";
@@ -49,28 +65,50 @@ class ClaClientes extends Model
         return isset($resultado[0]) ? $resultado[0]:null;
     }
 
+    /**
+     * Obtiene el listado de paises
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
     public function obtenerPaises(){
         $slq = "select * from paises";
         return $this->db->query($slq);
 
     }
 
+    /**
+     * Obtiene el listado de idiomas
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
     public function obtenerIdiomas(){
         $slq = "select * from idiomas";
         return $this->db->query($slq);
 
     }
+
+    /**
+     * Obtiene el listado de Hoteles
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
     public function obtenerHoteles(){
         $slq = "select * from hoteles";
         return $this->db->query($slq);
 
     }
 
+    /**
+     * Obtiene el listado de agencias
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
     public function obtenerAgencias(){
         $slq = "select * from agencias";
         return $this->db->query($slq);
 
     }
+
+    /**
+     * Obtiene el listado de Circunstancias Médicas
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
     public function obtenerCircu(){
         $slq = "select * from circustancias_medicas";
         return $this->db->query($slq);
@@ -79,7 +117,12 @@ class ClaClientes extends Model
 
 
 
-
+    /**
+     * Método para insertar parametros a la base de datos
+     * @param  [arreglo] $data [arreglo recogidos por el POST]
+     * @param  [int] $id   [id solicitado]
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
     public function guardar($data, $id=null){
 
         $id = (int)$id;
@@ -132,6 +175,11 @@ class ClaClientes extends Model
 
     }
 
+    /**
+     * Método para borrar registros de la base de datos
+     * @param  [int] $id [id a eliminar]
+     * @return [arreglo] [Devuelve arreglo con los elementos solicitados]
+     */
     public function borrarRegistro($id){
         $id = (int)$id;
         $sql = "delete from clientes where id = {$id}";

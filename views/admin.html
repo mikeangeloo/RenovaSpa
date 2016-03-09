@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+
     <script>
         webshims.setOptions('forms-ext', {types: 'date'});
         webshims.polyfill('forms forms-ext');
@@ -14,9 +14,23 @@
     <link rel="stylesheet" href="webroot/css/style.css">
     <link rel="stylesheet" href="webroot/css/bootstrap.css">
     <link rel="stylesheet" href="webroot/css/bootstrap-theme.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="webroot/js/jquery_min.js"></script>
     <script src="webroot/js/bootstrap.js"></script>
     <script src="webroot/js/admin.js"></script>
+    <script src="webroot/js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myBtn").click(function(){
+                $("#myModal").modal();
+            });
+
+
+        });
+
+
+    </script>
+
+
 
 </head>
 
@@ -37,7 +51,7 @@
 </nav>
 
 
-<div class="container">
+<div class="container2">
 
 
     <img class="logo" src="/renovaSpa/webroot/img/logo.jpg" alt="">
@@ -73,6 +87,7 @@
     </div>
 
 </div><!-- /.container -->
+
 
 <footer>Elaborado por Miguel &Aacutengel Ram&iacutemrez L&oacutepez</footer>
 

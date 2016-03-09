@@ -58,7 +58,47 @@ img{
 
 
 }
+.boton1{
+    margin-left: 0;
+}
+
+.iframe{
+    height: 100%;
+    width: 100%;
+
+}
+#info
+{
+    margin-top: 0;
+
+
+}
 
 footer{
     text-align: center;
+}
+option{
+    width: 350px;
+}
+.container2{
+    width: auto;
+}
+
+/* change standard modal behavior */
+.modal-body {
+    height: 500px;
+    width: 900px;
+    overflow: hidden;
+}
+
+
+.modal-backdrop {
+    background-color: #424530;
+
+}
+
+.modal-backdrop.fade.in
+{
+    opacity: .8;
+
 }

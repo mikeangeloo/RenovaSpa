@@ -8,7 +8,9 @@ class App{
 
 
     /**
-     * @return mixed
+     * [getRouter Clase que recibe los parametros de conección a la base de datos]
+     * Inicializa las rutas y prepara la escucha de parametros
+     * @return [type] [description]
      */
     public static function getRouter(){
         return self::$router;

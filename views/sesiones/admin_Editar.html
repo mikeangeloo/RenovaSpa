@@ -1,0 +1,76 @@
+<h3>Editar Pais</h3><br>
+
+<form method="post" action="">
+    <input type="hidden" name="id" value="<?=$data['sesiones']['id']?>"/>
+    <div class="form-group">
+
+       <!-- <?php
+        echo"<pre>";
+        print_r($data['sesiones']);
+        echo"</pre>";
+
+        echo"<pre>";
+        print_r($data['sesiones2']);
+        echo"</pre>";
+
+        echo"<pre>";
+        print_r($data['tratamientos']);
+        echo"</pre>";
+
+        ?>-->
+
+        <label for="cliente_id">Cliente</label>
+        <br>
+        <select name="cliente_id" id="cliente_id">
+            <option value="<?= $data['sesiones']['cliente_id']?>" selected><?= $data['sesiones2'][2]." ".$data['sesiones2'][3]?></option>
+            <?php foreach ($data['clientes'] as $clientes_data){
+                if($data['sesiones2'][2]!=$clientes_data['nombre']||$data['sesiones2'][3]!=$clientes_data['apellidos']){
+                ?>
+            <option value="<?=$clientes_data['id']?>"><?=$clientes_data['nombre']." ".$clientes_data['apellidos']?></option>
+            <?php }} ?>
+        </select>
+        <br>
+
+
+        <label for="opinion_id">Opinion</label>
+        <br>
+        <select name="opinion_id" id="opinion_id">
+            <option value="<?= $data['sesiones']['opinion_id']?>" selected><?= $data['sesiones2'][1]?></option>
+            <?php foreach ($data['opiniones'] as $opiniones_data){
+                if($data['sesiones2'][1]!=$opiniones_data['nombre']){
+                ?>
+            <option value="<?=$opiniones_data['id']?>"><?=$opiniones_data['nombre']?></option>
+            <?php }} ?>
+        </select>
+        <br>
+
+
+        <label for="terapeuta_id">Terapeuta</label>
+        <br>
+        <select name="terapeuta_id" id="terapeuta_id">
+            <option value="<?= $data['sesiones']['terapeuta_id']?>" selected><?= $data['sesiones2'][4]?></option>
+            <?php foreach ($data['terapeutas'] as $terapeutas_data){
+                if($data['sesiones2'][4]!=$terapeutas_data['nombre']){
+                ?>
+            <option value="<?=$terapeutas_data['id']?>"><?=$terapeutas_data['nombre']?></option>
+            <?php }} ?>
+        </select>
+        <br>
+
+
+        <label for="tratamiento_id">Tratamiento</label>
+        <br>
+        <select name="tratamiento_id" id="tratamiento_id">
+            <option value="<?= $data['sesiones']['tratamiento_id']?>" selected><?= $data['sesiones2'][5]?></option>
+            <?php foreach ($data['tratamientos'] as $tratamientos_data){
+                if($data['sesiones2'][5]!=$tratamientos_data['nombre']){
+                ?>
+            <option value="<?=$tratamientos_data['id']?>"><?=$tratamientos_data['nombre']?></option>
+            <?php }} ?>
+        </select>
+        <br>
+
+
+    </div>
+    <input type="submit" class="btn btn-success" value="Modificar">
+</form>

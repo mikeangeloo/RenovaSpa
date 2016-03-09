@@ -1,0 +1,228 @@
+#renova{
+	float: left;
+}
+@media (min-width: 560px){
+
+
+	.col-1{width: 8.333%;}
+
+	.col-2{width: 16.666%;}
+
+	.col-3{width:24.999%;}
+
+	.col-4{width: 33.332%;}
+
+	.col-5{width:41.665%;}
+
+	.col-6{width: 49.998%;}
+
+	.col-7{width:58.331%;}
+
+	.col-8{width: 66.664%;}
+
+	.col-9{width: 74.99%;}
+
+	.col-10{width: 83.33%;}
+
+	.col-11{width: 91.66%;}
+
+	.col-12{width: 99.99%;}
+	.col-14{width: 99.99%;}
+	[class *="col-"]{
+		float: left;
+		padding: 20px;
+		/*border: 1px solid blue;*/
+        text-align: justify;
+	}
+
+
+}
+[class *="col-"]{
+
+	padding: 20px;
+	/*border: 1px solid blue;*/
+    text-align: justify;
+}
+
+*{
+	box-sizing:border-box;
+}
+.row:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+
+h1{
+	text-align: center;
+}
+hr{
+	color: black;
+}
+button{
+	border-radius: 20%;
+}
+
+textarea{
+	width: 100%;
+	height: 102px;
+}
+
+
+input, select{
+	border-radius: 15px;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+}
+form{
+	width: 100%;
+	max-width: 100%;
+}
+b, #btn1{
+	float: right;
+	display: inline-block;
+}
+
+
+nav{
+	text-align: center;
+}
+
+.cartaencabezado{
+	margin: auto;
+	text-align: center;
+	font-size: 24px;
+	font-family: AvantGardeExtLitITCTT;
+	color: #a8a9ac;
+
+}
+.exportar{
+	margin-left: 26%;
+
+}
+
+.exportar2{
+	margin-left: 62.5%;
+	margin-top: -5.5%;
+
+}
+
+.imgexportar{
+	margin-left: 25%;
+	margin-top: 3%;
+	margin-bottom: 1%;
+	display: inline-block;
+}
+
+.imgexportar2{
+	margin-left: 30%;
+	margin-top: -10%;
+	display: inline-block;
+
+}
+p{
+	margin: auto;
+	text-align: center;
+	font-size: 15px;
+	font-family: Arial;
+	color: #000000;
+	font-weight: bold;
+
+}
+
+#Relleno{
+	margin: 25px;
+	border-color: black;
+}
+
+.textNom{
+	width: 30%;
+	display: inline-block;
+	height: 4%;
+}
+.id{
+	width: 60%;
+	display: inline-block;
+	height: 4%;
+
+}
+
+.textEda{
+
+	width: 20%;
+	display: inline-block;
+	height: 4%;
+
+
+}
+.textPai{
+	width: 40%;
+	height: 4%;
+	display: inline-block;
+
+}
+
+.textEma{
+	width: 48%;
+
+	height: 4%;
+	display: inline-block;
+}
+
+.textHot{
+	width: 50%;
+	display: inline-block;
+	height: 4%;
+}
+
+.textHab{
+
+	width: 35%;
+	display: inline-block;
+	height: 4%;
+}
+
+.textAge{
+	width: 91%;
+	display: inline-block;
+	height: 4%;
+}
+
+.textTra{
+	width: 35%;
+	height: 4%;
+	display: inline-block;
+}
+
+.textTer{
+	width: 47%;
+
+	height: 4%;
+	display: inline-block;;
+}
+
+td{
+	text-align: center;
+}
+
+#imagenes img{
+	margin-left: 5.5%;
+	margin-right:6%;
+	margin-bottom: 0;
+}
+
+#check input{
+	margin-right: 99px;
+	margin-left: 102px; 
+}
+#opinion{
+	display: inline-block;
+}
+
+footer{
+
+   bottom:0;
+   font-size: 12px;
+}

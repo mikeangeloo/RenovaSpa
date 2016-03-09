@@ -1,10 +1,22 @@
 <?php
-
+/**
+ * Su objetivo es entablar la conexón con la base de datos.
+ * @author Miguel Ángel Ramírez López <"miguelangelramirez@tecnorrollo.com">
+ * @materia Calidad en el desarrollo del software
+ * @grupo TI51
+ * @programa Glifosoft 1.0
+ */
 class DB
 {
     protected $connection;
 
-
+    /**
+     * Contructor para iniciar conexón
+     * @param [string] $host     [localhost]
+     * @param [string] $user     [root]
+     * @param [string] $password [vacio]
+     * @param [string] $db_name  [nombre de la base de datos]
+     */
     public function __construct($host, $user, $password, $db_name){
         $this->connection=new mysqli($host,$user,$password,$db_name);
         $this->connection->query("SET NAMES 'utf8'");
@@ -14,7 +26,11 @@ class DB
             throw new Exception ('Could not connect to DB');
         }
     }
-
+    /**
+     * Genera el primer querry de tipo arreglo
+     * @param  [string] $sql [query que se debe ejecutar]
+     * @return [arreglo]      [contiene los elementos traidos de la base de datos asociados por nombre]
+     */
     public function query($sql){
 
         if(!$this->connection){
@@ -38,7 +54,11 @@ class DB
 
         return $data;
     }
-
+    /**
+     * Segunda opción de consulta
+     * @param  [type] $sql [description]
+     * @return [arreglo]      [contiene los elementos traidos de la base de datos asociados por indice]
+     */
     public function query2($sql){
 
         if(!$this->connection){

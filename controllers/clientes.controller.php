@@ -9,21 +9,39 @@
  * @programa Glifosoft 1.0
  */
 class ClientesController extends Controller
-{
+{   /**
+     * Contructor del controlador 
+     * @param array $data [recibe el path de la ruta de la vista]
+     */
     public function __construct($data = array())
     {
         parent::__construct($data);
         $this->model = new ClaClientes();
     }
-
+    /**
+     * Método para que solicita el listado de parametros de la vista
+     * @return [arreglo] [Arreglo con listado de parametros]
+     */
     public function admin_index()
     {
         $this->data['clientes'] = $this->model->join();
 
     }
-
+    /**
+     * [admin_Agregar Método para invocar agregar nuevos elementos a traves del modelo]
+     * @return [true:false] [Envia mensaje de exito o error de registro de parametros]
+     * @param $_POST recibe parametros del formulario
+     * Crea nuevos objetos para invocar los métodos de los modelos correspondientes
+     * 
+     */
     public function admin_Agregar()
     {
+
+        $this->data['paises'] = $this->model->obtenerPaises();
+        $this->data['idiomas'] = $this->model->obtenerIdiomas();
+        $this->data['hoteles'] = $this->model->obtenerHoteles();
+        $this->data['agencias'] = $this->model->obtenerAgencias();
+        $this->data['circustancias_medicas'] = $this->model->obtenerCircu();
         if ($_POST) {
             $resultado = $this->model->guardar($_POST);
             if ($resultado) {
@@ -42,7 +60,13 @@ class ClientesController extends Controller
 
         }
     }
-
+    /**
+     * [admin_Editar Método para editar elementos a traves del modelo ]
+     * @return [true:false] [Envia mensaje de exito o error]
+     * @param $_POST recibe parametros del formulario
+     * Se comunica con el modelo para ejecutar sus métodos de modifación
+     * Crea nuevos objetos para invocar los métodos de los modelos correspondientes
+     */
     public function admin_Editar()
     {
         if ($_POST) {
@@ -79,7 +103,10 @@ class ClientesController extends Controller
             <?php
         }
     }
-
+    /**
+     * [admin_BorrarRegistro Invoca los métodos del modelo para borrar registros]
+     * @return [true:false] [Muestra mensaje de exito o error]
+     */
     public function admin_BorrarRegistro()
     {
         if (isset($this->params[0])) {

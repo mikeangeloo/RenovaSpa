@@ -1,0 +1,79 @@
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="/renovaSpa/admin/sesiones/agregar" class="close"  aria-hidden="true">close</a>
+                <h4 class="modal-title" id="myModalLabel">Nuevo Registro</h4>
+
+                <p>Seleccione la opci&oacuten deseada</p>
+            </div>
+
+            <div class="modal-body">
+
+                <iframe src="/renovaSpa/admin/opiniones/agregar" id="info" class="iframe" name="info" scrolling="yes"></iframe>
+            </div>
+
+        </div>
+    </div>
+</div> <!-- /#myModal -->
+<b>Puedes agregar mas opciones da click ---------></b>
+
+    <button class="btn btn-primary btn-lg boton1" data-toggle="modal" data-target="#myModal">
+        +</button>
+
+
+<br>
+<a href="/renovaSpa/admin/sesiones/">Regresar</a>
+<h3>Nueva Sesi&oacuten</h3><br>
+<form method="post" action="">
+    <div class="form-group">
+
+        <label for="cliente_id">Cliente</label>
+        <br>
+        <select name="cliente_id" id="cliente_id">
+            <?php foreach ($data['clientes'] as $clientes_data){?>
+            <option value="<?=$clientes_data['id']?>"><?=$clientes_data['nombre']." ".$clientes_data['apellidos']?></option>
+            <?php } ?>
+        </select>
+        <br>
+
+
+        <label for="opinion_id">Opinion</label>
+        <br>
+        <select name="opinion_id" id="opinion_id">
+            <?php foreach ($data['opiniones'] as $opiniones_data){
+                ?>
+            <option value="<?=$opiniones_data['id']?>"><?=$opiniones_data['nombre']?></option>
+            <?php } ?>
+        </select>
+        <br>
+
+
+        <label for="terapeuta_id">Terapeuta</label>
+        <br>
+        <select name="terapeuta_id" id="terapeuta_id">
+            <?php foreach ($data['terapeutas'] as $terapeutas_data){
+                ?>
+            <option value="<?=$terapeutas_data['id']?>"><?=$terapeutas_data['nombre']?></option>
+            <?php } ?>
+        </select>
+        <br>
+
+
+        <label for="tratamiento_id">Tratamiento</label>
+        <br>
+        <select name="tratamiento_id" id="tratamiento_id">
+            <?php foreach ($data['tratamientos'] as $tratamientos_data){
+                ?>
+            <option value="<?=$tratamientos_data['id']?>"><?=$tratamientos_data['nombre']?></option>
+            <?php } ?>
+        </select>
+        <br>
+
+
+    </div>
+    <input type="submit" class="btn btn-success" value="Guardar">
+</form>
+
